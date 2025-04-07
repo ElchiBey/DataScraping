@@ -120,4 +120,4 @@ def test():
     print(category_dict)  # Output: Dictionary representation of the category
     
 if __name__ == "__main__":
-    test()
+    test() # test the functionality of the classes
