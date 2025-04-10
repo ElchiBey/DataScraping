@@ -61,6 +61,7 @@ class WebCollector:
             self._respect_rate_limit()
             response = self.session.get(full_url, params=params)
             response.raise_for_status()
+            response.encoding = 'utf-8'
             return response.text
         except RequestException as e:
             print(f"Error fetching {full_url}: {e}")
