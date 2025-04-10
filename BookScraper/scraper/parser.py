@@ -5,14 +5,12 @@ from typing import Dict, List, Optional, Tuple
 from bs4 import BeautifulSoup, Tag
 import re
 
-from collector import WebCollector
+from .collector import WebCollector
 
 import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from models.data_models import Book, Category
-
 from models.data_models import Book, Category
 
 
@@ -288,33 +286,37 @@ class BookParser:
 #     except Exception as e:
 #         print(f"An error occurred: {e}")
 #     finally:
-from collector import WebCollector
-from models.data_models import Book, Category
 
-# Initialize the WebCollector with the base URL and rate limit
-collector = WebCollector("http://books.toscrape.com", rate_limit=2.0)
 
-try:
-    # Attempt to fetch the content from the homepage
-    html_content = collector.get("/")
-    if html_content:
-        print("Content fetched successfully.")
-        print("Fetched Content:")
-        # print(html_content)  # Print the raw HTML content just to varify correctness
-    else:
-        print("Failed to fetch content or resource not found.")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
-finally:
-    collector.close()
-    # print("Collector closed.")#         parser.close()
-#         print("Parser closed.")
-#     # Note: The example HTML content is not functional and is just for demonstration purposes.
-#     # In a real scenario, you would fetch the HTML content from the website using the WebCollector class.
+# from collector import WebCollector
+# from models.data_models import Book, Category
+
+# # Initialize the WebCollector with the base URL and rate limit
+# collector = WebCollector("http://books.toscrape.com", rate_limit=2.0)
+
+# try:
+#     # Attempt to fetch the content from the homepage
+#     html_content = collector.get("/")
+#     if html_content:
+#         print("Content fetched successfully.")
+#         print("Fetched Content:")
+#         # print(html_content)  # Print the raw HTML content just to varify correctness
+#     else:
+#         print("Failed to fetch content or resource not found.")
+# except Exception as e:
+#     print(f"An unexpected error occurred: {e}")
+# finally:
+#     collector.close()
+#     # print("Collector closed.")#         parser.close()
+# #         print("Parser closed.")
+# #     # Note: The example HTML content is not functional and is just for demonstration purposes.
+# #     # In a real scenario, you would fetch the HTML content from the website using the WebCollector class.
 
 
 """
 now let's test the real scenario and fetch from the website using the WebCollector class.
+fetched only 2 pages of the book category and then parse the books from the pages.
+the book details and the next page of the category.
 """
 if __name__ == "__main__": 
     collector = WebCollector("http://books.toscrape.com", rate_limit=2.0)
