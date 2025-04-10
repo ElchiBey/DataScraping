@@ -5,6 +5,7 @@ import time
 from typing import Dict, Optional, Union
 import requests
 from requests.exceptions import RequestException
+from bs4 import BeautifulSoup
 
 
 class WebCollector:
@@ -70,11 +71,32 @@ class WebCollector:
         Close the session.
         """
         self.session.close()
-        print("Session closed.")
+        # print("Session closed.")
         
 if __name__ == "__main__":
     # Initialize the WebCollector with the base URL and rate limit
     collector = WebCollector("http://books.toscrape.com", rate_limit=2.0)
+    
+    # Fetch the content of the books
+    books_url = "/catalogue/category/books_1/index.html"
+    books_content = collector.get(books_url)
+
+    if books_content:
+        print("Books content fetched successfully.")
+        print("Books Page Content:")
+        # Parse the HTML content using BeautifulSoup
+        soup = BeautifulSoup(books_content, 'html.parser')
+
+        # Find all book containers
+        books = soup.find_all('article', class_='product_pod')
+
+        # Extract and print the title and price of each book
+        for book in books:
+            title = book.h3.a['title']
+            price = book.find('p', class_='price_color').text
+            print(f"Title: {title}, Price: {price}")
+    else:
+        print("Failed to fetch books content or resource not found.")
     
     try:
         # Attempt to fetch the content from the homepage
@@ -82,7 +104,17 @@ if __name__ == "__main__":
         if html_content:
             print("Content fetched successfully.")
             print("Fetched Content:")
-            print(html_content)  # Print the raw HTML content just to varify correctness
+            # Parse the HTML content using BeautifulSoup
+            soup = BeautifulSoup(html_content, 'html.parser')
+
+            # Find all category links in the sidebar
+            categories = soup.find('div', class_='side_categories').find_all('a')
+
+            # Extract and print the category names
+            print("Categories:")
+            for category in categories:
+                category_name = category.text.strip()
+                print(f"- {category_name}")
         else:
             print("Failed to fetch content or resource not found.")
     except Exception as e:
