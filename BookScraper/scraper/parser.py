@@ -307,7 +307,7 @@ except Exception as e:
     print(f"An unexpected error occurred: {e}")
 finally:
     collector.close()
-    print("Collector closed.")#         parser.close()
+    # print("Collector closed.")#         parser.close()
 #         print("Parser closed.")
 #     # Note: The example HTML content is not functional and is just for demonstration purposes.
 #     # In a real scenario, you would fetch the HTML content from the website using the WebCollector class.
@@ -389,4 +389,4 @@ if __name__ == "__main__":
         print(f"An error occurred: {e}")
     finally:
         collector.close()
-        print("Web collector session closed.")
+        # print("Web collector session closed.")

@@ -122,3 +122,4 @@ if __name__ == "__main__":
     finally:
         # Ensure the session is closed properly
         collector.close()
+        print("Collector closed.")
