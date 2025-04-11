@@ -4,9 +4,9 @@ File operation utilities for the book scraper.
 import json
 import csv
 import os
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 import pandas as pd
-
+from concurrent.futures import ThreadPoolExecutor
 
 import sys
 from pathlib import Path
@@ -143,88 +143,90 @@ class FileHandler:
             return pd.DataFrame()
         
         
+def fetch_book_details(book, parser, collector):
+    book_html = collector.get(book.url)
+    if book_html:
+        return parser.parse_book_details(book_html, book)
+    return None
+
+def scrape_all_books(base_url: str, max_books_per_category: Optional[int] = None) -> List[Category]:
+    collector = WebCollector(base_url, rate_limit=2.0)
+    try:
+        homepage_content = collector.get("/")
+        if not homepage_content:
+            print("Failed to fetch homepage content.")
+            return []
+
+        parser = BookParser(base_url)
+        categories = parser.parse_categories(homepage_content)
+        if not categories:
+            print("No categories found.")
+            return []
+
+        for category in categories:
+            print(f"Fetching books for category: {category.name}")
+            category_content = collector.get(category.url)
+            if not category_content:
+                print(f"Failed to fetch category page for: {category.name}")
+                continue
+
+            with ThreadPoolExecutor(max_workers=5) as executor:
+                category_books = parser.parse_books_list(category_content, category.name)
+                detailed_books = list(executor.map(
+                    lambda book: fetch_book_details(book, parser, collector),
+                    category_books
+                ))
+                category.books.extend(filter(None, detailed_books))
+
+        return categories
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    finally:
+        collector.close()
+        
 def test():
     # Create a FileHandler instance
     data_dir = "test_data"
     file_handler = FileHandler(data_dir)
     
-    # Initialize the WebCollector with the base URL and rate limit
-    collector = WebCollector("http://books.toscrape.com", rate_limit=2.0)
-    try:
-        # Fetch the homepage content
-        homepage_content = collector.get("/")
-        if homepage_content:
-            print("Homepage content fetched successfully.")
-            
-            # Initialize the BookParser
-            book_parser = BookParser("http://books.toscrape.com")
-            
-            # Parse categories from the homepage
-            categories = book_parser.parse_categories(homepage_content)
-            if not categories:
-                print("No categories found.")
-                return
-            
-            # Process each category
-            books = []
-            for category in categories:
-                print(f"Fetching books for category: {category.name}")
-                
-                # Fetch the category page content
-                category_content = collector.get(category.url)
-                if not category_content:
-                    print(f"Failed to fetch category page for: {category.name}")
-                    continue
-                
-                # Parse books in the category
-                category_books = book_parser.parse_books_list(category_content, category.name)
-                for book in category_books:
-                    # Fetch book detail page content
-                    book_detail_content = collector.get(book.url)
-                    if book_detail_content:
-                        # Parse book details
-                        book = book_parser.parse_book_details(book_detail_content, book)
-                    else:
-                        print(f"Failed to fetch details for book: {book.title}")
-                
-                books.extend(category_books)
-            
-            # Prepare data for saving
-            books_data = []
-            for book in books:
-                books_data.append({
-                    "title": book.title,
-                    "price": book.price,
-                    "rating": book.rating,
-                    "availability": book.availability,
-                    "category": book.category,
-                    "url": book.url,
-                    "upc": book.upc,
-                    "description": book.description,
-                    "image_url": book.image_url
-                })
-            
-            # Save to JSON and CSV
-            if books_data:
-                if file_handler.save_to_json(books_data, "books.json"):
-                    print("Books data saved to books.json")
-                if file_handler.save_to_csv(books_data, "books.csv"):
-                    print("Books data saved to books.csv")
-            else:
-                print("No books data to save.")
-            
-            # Load from JSON and CSV
-            loaded_json = file_handler.load_json("books.json")
-            loaded_csv = file_handler.load_csv("books.csv")
+    # Scrape all books
+    categories = scrape_all_books("http://books.toscrape.com")
+    if not categories:
+        print("No categories or books found.")
+        return
+    
+    # Prepare data for saving
+    books_data = []
+    for category in categories:
+        for book in category.books:
+            books_data.append({
+                "title": book.title,
+                "price": book.price,
+                "rating": book.rating,
+                "availability": book.availability,
+                "category": book.category,
+                "url": book.url,
+                "upc": book.upc,
+                "description": book.description,
+                "image_url": book.image_url
+            })
+    
+    # Save to JSON and CSV
+    if books_data:
+        if file_handler.save_to_json(books_data, "books.json"):
+            print("Books data saved to books.json")
+        if file_handler.save_to_csv(books_data, "books.csv"):
+            print("Books data saved to books.csv")
+    else:
+        print("No books data to save.")
+    
+    # Load from JSON and CSV
+    loaded_json = file_handler.load_json("books.json")
+    loaded_csv = file_handler.load_csv("books.csv")
 
-            print("Loaded JSON:", loaded_json)
-            print("Loaded CSV:", loaded_csv)
-        else:
-            print("Failed to fetch homepage content.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    finally:
-        collector.close()
+    print("Loaded JSON:", loaded_json)
+    print("Loaded CSV:", loaded_csv)
 
 # test FileHandler class functionality using collected data from the scraper
 if __name__ == "__main__":
