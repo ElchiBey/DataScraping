@@ -1,0 +1,436 @@
+{
+  "rating_analysis": {
+    "average_rating": 2.923,
+    "rating_counts": {
+      "1": 226,
+      "3": 203,
+      "2": 196,
+      "5": 196,
+      "4": 179
+    },
+    "highest_rated_books": [
+      {
+        "title": "1,000 Places to See Before You Die",
+        "rating": 5,
+        "category": "Travel"
+      },
+      {
+        "title": "A Time of Torment (Charlie Parker #14)",
+        "rating": 5,
+        "category": "Mystery"
+      },
+      {
+        "title": "What Happened on Beale Street (Secrets of the South Mysteries #2)",
+        "rating": 5,
+        "category": "Mystery"
+      },
+      {
+        "title": "The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1)",
+        "rating": 5,
+        "category": "Mystery"
+      },
+      {
+        "title": "The Silkworm (Cormoran Strike #2)",
+        "rating": 5,
+        "category": "Mystery"
+      }
+    ],
+    "lowest_rated_books": [
+      {
+        "title": "The Great Railway Bazaar",
+        "rating": 1,
+        "category": "Travel"
+      },
+      {
+        "title": "The Road to Little Dribbling: Adventures of an American in Britain (Notes From a Small Island #2)",
+        "rating": 1,
+        "category": "Travel"
+      },
+      {
+        "title": "In a Dark, Dark Wood",
+        "rating": 1,
+        "category": "Mystery"
+      },
+      {
+        "title": "A Murder in Time",
+        "rating": 1,
+        "category": "Mystery"
+      },
+      {
+        "title": "That Darkness (Gardiner and Renner #1)",
+        "rating": 1,
+        "category": "Mystery"
+      }
+    ]
+  },
+  "price_analysis": {
+    "average_price": 35.07035,
+    "median_price": 35.980000000000004,
+    "min_price": 10.0,
+    "max_price": 59.99,
+    "price_range": 49.99,
+    "standard_deviation": 14.446689669952764,
+    "most_expensive_books": [
+      {
+        "title": "The Perfect Play (Play by Play #1)",
+        "price": 59.99,
+        "category": "Romance"
+      },
+      {
+        "title": "Last One Home (New Beginnings #1)",
+        "price": 59.98,
+        "category": "Fiction"
+      },
+      {
+        "title": "Civilization and Its Discontents",
+        "price": 59.95,
+        "category": "Psychology"
+      },
+      {
+        "title": "The Barefoot Contessa Cookbook",
+        "price": 59.92,
+        "category": "Food and Drink"
+      },
+      {
+        "title": "The Diary of a Young Girl",
+        "price": 59.9,
+        "category": "Nonfiction"
+      }
+    ],
+    "least_expensive_books": [
+      {
+        "title": "An Abundance of Katherines",
+        "price": 10.0,
+        "category": "Young Adult"
+      },
+      {
+        "title": "The Origin of Species",
+        "price": 10.01,
+        "category": "Science"
+      },
+      {
+        "title": "The Tipping Point: How Little Things Can Make a Big Difference",
+        "price": 10.02,
+        "category": "Add a comment"
+      },
+      {
+        "title": "Patience",
+        "price": 10.16,
+        "category": "Sequential Art"
+      },
+      {
+        "title": "Greek Mythic History",
+        "price": 10.23,
+        "category": "Default"
+      }
+    ]
+  },
+  "category_analysis": {
+    "category_counts": {
+      "Default": 152,
+      "Nonfiction": 110,
+      "Sequential Art": 75,
+      "Add a comment": 67,
+      "Fiction": 65,
+      "Young Adult": 54,
+      "Fantasy": 48,
+      "Romance": 35,
+      "Mystery": 32,
+      "Food and Drink": 30,
+      "Childrens": 29,
+      "Historical Fiction": 26,
+      "Classics": 19,
+      "Poetry": 19,
+      "History": 18,
+      "Womens Fiction": 17,
+      "Horror": 17,
+      "Science Fiction": 16,
+      "Science": 14,
+      "Music": 13,
+      "Business": 12,
+      "Travel": 11,
+      "Philosophy": 11,
+      "Thriller": 11,
+      "Humor": 10,
+      "Autobiography": 9,
+      "Art": 8,
+      "Religion": 7,
+      "Psychology": 7,
+      "Christian Fiction": 6,
+      "Spirituality": 6,
+      "New Adult": 6,
+      "Sports and Games": 5,
+      "Biography": 5,
+      "Self Help": 5,
+      "Health": 4,
+      "Politics": 3,
+      "Contemporary": 3,
+      "Christian": 3,
+      "Historical": 2,
+      "Paranormal": 1,
+      "Parenting": 1,
+      "Adult Fiction": 1,
+      "Academic": 1,
+      "Short Stories": 1,
+      "Suspense": 1,
+      "Novels": 1,
+      "Cultural": 1,
+      "Erotica": 1,
+      "Crime": 1
+    },
+    "most_common_category": "Default",
+    "least_common_category": "Crime",
+    "category_stats": [
+      {
+        "category": "Academic",
+        "price": 13.12,
+        "rating": 2.0
+      },
+      {
+        "category": "Add a comment",
+        "price": 35.796417910447765,
+        "rating": 2.7611940298507465
+      },
+      {
+        "category": "Adult Fiction",
+        "price": 15.36,
+        "rating": 5.0
+      },
+      {
+        "category": "Art",
+        "price": 38.52,
+        "rating": 3.625
+      },
+      {
+        "category": "Autobiography",
+        "price": 37.053333333333335,
+        "rating": 3.0
+      },
+      {
+        "category": "Biography",
+        "price": 33.662,
+        "rating": 2.2
+      },
+      {
+        "category": "Business",
+        "price": 32.46,
+        "rating": 2.9166666666666665
+      },
+      {
+        "category": "Childrens",
+        "price": 32.638275862068966,
+        "rating": 2.6206896551724137
+      },
+      {
+        "category": "Christian",
+        "price": 42.49666666666666,
+        "rating": 2.6666666666666665
+      },
+      {
+        "category": "Christian Fiction",
+        "price": 34.385,
+        "rating": 4.166666666666667
+      },
+      {
+        "category": "Classics",
+        "price": 36.54526315789474,
+        "rating": 2.473684210526316
+      },
+      {
+        "category": "Contemporary",
+        "price": 36.199999999999996,
+        "rating": 2.3333333333333335
+      },
+      {
+        "category": "Crime",
+        "price": 10.97,
+        "rating": 1.0
+      },
+      {
+        "category": "Cultural",
+        "price": 36.58,
+        "rating": 1.0
+      },
+      {
+        "category": "Default",
+        "price": 34.39269736842105,
+        "rating": 2.835526315789474
+      },
+      {
+        "category": "Erotica",
+        "price": 19.19,
+        "rating": 5.0
+      },
+      {
+        "category": "Fantasy",
+        "price": 39.59395833333333,
+        "rating": 3.0833333333333335
+      },
+      {
+        "category": "Fiction",
+        "price": 36.06661538461538,
+        "rating": 3.1846153846153844
+      },
+      {
+        "category": "Food and Drink",
+        "price": 31.41466666666667,
+        "rating": 2.9
+      },
+      {
+        "category": "Health",
+        "price": 51.4525,
+        "rating": 3.75
+      },
+      {
+        "category": "Historical",
+        "price": 22.83,
+        "rating": 3.0
+      },
+      {
+        "category": "Historical Fiction",
+        "price": 33.64423076923077,
+        "rating": 3.230769230769231
+      },
+      {
+        "category": "History",
+        "price": 37.294999999999995,
+        "rating": 2.9444444444444446
+      },
+      {
+        "category": "Horror",
+        "price": 35.94941176470588,
+        "rating": 2.7058823529411766
+      },
+      {
+        "category": "Humor",
+        "price": 33.501,
+        "rating": 3.4
+      },
+      {
+        "category": "Music",
+        "price": 35.636923076923075,
+        "rating": 3.1538461538461537
+      },
+      {
+        "category": "Mystery",
+        "price": 31.7190625,
+        "rating": 2.9375
+      },
+      {
+        "category": "New Adult",
+        "price": 46.38333333333333,
+        "rating": 3.1666666666666665
+      },
+      {
+        "category": "Nonfiction",
+        "price": 34.26018181818182,
+        "rating": 2.881818181818182
+      },
+      {
+        "category": "Novels",
+        "price": 54.81,
+        "rating": 5.0
+      },
+      {
+        "category": "Paranormal",
+        "price": 15.4,
+        "rating": 1.0
+      },
+      {
+        "category": "Parenting",
+        "price": 37.35,
+        "rating": 2.0
+      },
+      {
+        "category": "Philosophy",
+        "price": 33.558181818181815,
+        "rating": 2.3636363636363638
+      },
+      {
+        "category": "Poetry",
+        "price": 35.97421052631579,
+        "rating": 3.526315789473684
+      },
+      {
+        "category": "Politics",
+        "price": 53.61333333333334,
+        "rating": 2.3333333333333335
+      },
+      {
+        "category": "Psychology",
+        "price": 34.21857142857143,
+        "rating": 1.7142857142857142
+      },
+      {
+        "category": "Religion",
+        "price": 32.567142857142855,
+        "rating": 3.142857142857143
+      },
+      {
+        "category": "Romance",
+        "price": 33.93371428571429,
+        "rating": 2.6285714285714286
+      },
+      {
+        "category": "Science",
+        "price": 33.08857142857143,
+        "rating": 2.9285714285714284
+      },
+      {
+        "category": "Science Fiction",
+        "price": 33.8025,
+        "rating": 2.25
+      },
+      {
+        "category": "Self Help",
+        "price": 40.62,
+        "rating": 2.6
+      },
+      {
+        "category": "Sequential Art",
+        "price": 34.57226666666667,
+        "rating": 2.973333333333333
+      },
+      {
+        "category": "Short Stories",
+        "price": 35.88,
+        "rating": 1.0
+      },
+      {
+        "category": "Spirituality",
+        "price": 35.098333333333336,
+        "rating": 3.3333333333333335
+      },
+      {
+        "category": "Sports and Games",
+        "price": 41.166,
+        "rating": 3.0
+      },
+      {
+        "category": "Suspense",
+        "price": 58.33,
+        "rating": 3.0
+      },
+      {
+        "category": "Thriller",
+        "price": 31.433636363636364,
+        "rating": 2.727272727272727
+      },
+      {
+        "category": "Travel",
+        "price": 39.79454545454546,
+        "rating": 2.727272727272727
+      },
+      {
+        "category": "Womens Fiction",
+        "price": 36.79117647058824,
+        "rating": 3.1176470588235294
+      },
+      {
+        "category": "Young Adult",
+        "price": 35.449074074074076,
+        "rating": 3.2962962962962963
+      }
+    ]
+  }
+}

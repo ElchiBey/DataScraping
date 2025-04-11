@@ -176,7 +176,7 @@ def main() -> None:
     arg_parser = argparse.ArgumentParser(description="Book Scraper for Books to Scrape website")
     arg_parser.add_argument("--max-books", type=int, default=None, 
                             help="Maximum number of books to scrape per category")
-    arg_parser.add_argument("--data-dir", type=str, default="../data",
+    arg_parser.add_argument("--data-dir", type=str, default="BookScraper\data",
                             help="Directory to store output files")
     arg_parser.add_argument("--analyze-only", action="store_true",
                             help="Skip scraping and only analyze existing data")
