@@ -45,7 +45,7 @@ class FileHandler:
         """
         filepath = os.path.join(self.data_dir, filename)
         try:
-            with open(filepath, 'w', encoding='utf-8') as f:
+            with open(filepath, 'w', encoding='utf-8', decoding='unicode-escape') as f:
                 json.dump(data, f, indent=2)
             return True
         except Exception as e:
