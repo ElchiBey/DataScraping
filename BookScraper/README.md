@@ -1,7 +1,7 @@
 # Books to Scrape - Web Scraping Project
 
 This project is a Python web scraper that collects book data from [Books to Scrape](http://books.toscrape.com/), processes the information, saves it to files, and performs basic analysis on the collected data.
-
+ 
 ## Features
 
 - Scrapes book data including titles, prices, ratings, and availability
