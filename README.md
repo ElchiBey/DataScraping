@@ -20,7 +20,7 @@ This project is designed to scrape data from various sources and organize it for
     ```bash
     pip install -r requirements.txt
     ```
-
+    
 ## Usage
 1. Open the `BookScraper` file in your preferred code editor or IDE.
 2. Run the script:
