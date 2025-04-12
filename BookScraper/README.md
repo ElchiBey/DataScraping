@@ -109,7 +109,3 @@ This scraper:
 - Implements rate limiting to prevent server overload
 - Does not scrape copyrighted content for commercial purposes
 - Uses clear user-agent headers to identify itself
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
