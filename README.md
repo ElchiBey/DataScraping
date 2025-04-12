@@ -10,7 +10,7 @@ This project is designed to scrape data from various sources and organize it for
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/DataScraping.git
+    git clone https://github.com/ElchiBey/DataScraping.git
     ```
 2. Navigate to the project directory:
     ```bash
