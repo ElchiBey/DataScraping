@@ -11,7 +11,7 @@ This project is designed to scrape data from various sources and organize it for
 1. Clone the repository:
     ```bash
     git clone https://github.com/ElchiBey/DataScraping.git
-    ```
+    ``` 
 2. Navigate to the project directory:
     ```bash
     cd DataScraping
